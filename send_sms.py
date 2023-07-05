@@ -1,35 +1,33 @@
+import africastalking
+from dotenv import load_dotenv
 import os
-from flask import Flask, request
-from send_sms import send_sms
 
-app = Flask(__name__)
+# Load environment variables from .env file
+load_dotenv()
 
-# TODO: create incoming messages route
+# Initialize Africa's Talking
 
-# TODO: create delivery reports route.
 
-#TODO: Initialize the SDK
-username = 'orchid'
-api_key = 'd354a71adee83ba94a9cb40d6c2f9159a02331d2dbbb95bc8053144b98900a3e'
-africastalking.initialize(username, api_key)
+class sms:
+    def __init__(self):
+        self.username = os.environ['USERNAME']
+        self.api_key = os.environ['API_KEY']
 
-if __name__ == "__main__":
-    #TODO: Call send message function
-    def sending(self):
-            # Set the numbers in international format
-            recipients = ["+254704469422"]
-            # Set your message
-            message = "Hey AT Ninja! Good luck today";
-            # Set your shortCode or senderId
-            sender = "XXYYZZ"
-            try:
-                response = self.sms.send(message, recipients, sender)
-                print (response)
-            except Exception as e:
-                print (f'Houston, we have a problem: {e}')
-    
+    def send(self):
+        # Send message
+        recipients = ["+254716299581"]
+        message = "Hello from Africa's Talking!"
+        africastalking.initialize(self.username, self.api_key)
 
-    app.run(debug=True, port = os.environ.get("PORT"))
+        # Create an instance of the SMS class
+        sms = africastalking.SMS
 
-#TODO: Call SMS method
-send_sms().sending()
+        try:
+            response = sms.send(message, recipients)
+            print(response)
+        except Exception as e:
+            print(f'Houston, we have a problem: {e}')
+            print(e)
+
+
+sms().send()
