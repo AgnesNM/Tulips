@@ -7,8 +7,8 @@ class SMS:
 
     def send(self):
         recipients = ["+254712227589"]
-        message = "Hello, Please remember to pay your Helb loan before the end of the day. Paybill: 200800. Avoid aibu ndogo ndogo" print("\U0001F605")
-
+        message = "Hello, Please remember to pay your Helb loan before the end of the day. Paybill: 200800. Avoid aibu ndogo ndogo tafadhali 😄!"
+        
         #initialize the SDK
         africastalking.initialize(self.username, self.api_key)
 
