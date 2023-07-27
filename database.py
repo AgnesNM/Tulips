@@ -1,21 +1,22 @@
-import psycopg2
-
-connection = psycopg2.connect(database="tulipers",
-                              host="localhost",
-                              user="ladies",
-                              password="Tulipsrocks23#",
-                              port="5433")
+# import psycopg2
 
 
-cursor = connection.cursor()
+# connection = psycopg2.connect(database="tulipers",
+#                               host="localhost",
+#                               user="ladies",
+#                               password="Tulipsrocks23#",
+#                               port="5433")
 
-insert_query = "INSERT INTO payments (national_id, paybill_no, phone_number) VALUES (%s, %s, %s)"
-data = ('200800', '28594210', '+254712227589')
 
-cursor.execute(insert_query, data)
+# cursor = connection.cursor()
 
-connection.commit()
+# # insert_query = "INSERT INTO payments (national_id, paybill_no, phone_number) VALUES (%s, %s, %s)"
+# # data = ('200800', '28594210', '+254712227589')
 
-print("Data inserted successfully!")
+# # cursor.execute(insert_query)
 
-print(cursor.fetchone())
+# # connection.commit()
+
+# # print("Data inserted successfully!")
+
+# # print(cursor.fetchone())

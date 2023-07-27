@@ -1,33 +1,26 @@
 import africastalking
-from dotenv import load_dotenv
-import os
 
-# Load environment variables from .env file
-load_dotenv()
-
-# Initialize Africa's Talking
-
-
-class sms:
+class SMS:
     def __init__(self):
-        self.username = os.environ['USERNAME']
-        self.api_key = os.environ['API_KEY']
+        self.username = "orchid"
+        self.api_key = "6308e6ddc6ce92f958392693e6ebe7223b218bc2b50974337d31688b97774977"
 
     def send(self):
-        # Send message
-        recipients = ["+254716299581"]
-        message = "Hello from Africa's Talking!"
+        recipients = ["+254714945756", "+25478930067"]
+        message = "Hello, Please remember to pay your Helb loan before the end of the day. Paybill: 200800. Avoid aibu ndogo ndogo tafadhali"
+        
+        #initialize the SDK
         africastalking.initialize(self.username, self.api_key)
 
-        # Create an instance of the SMS class
+        #get the SMS service
         sms = africastalking.SMS
 
+    
         try:
             response = sms.send(message, recipients)
             print(response)
         except Exception as e:
-            print(f'Houston, we have a problem: {e}')
+            print("oops, the message was not sent")
             print(e)
-
-
-sms().send()
+            
+SMS().send()
